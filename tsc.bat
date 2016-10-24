@@ -1,0 +1,1 @@
+start C:\Users\Sergei\AppData\Roaming\npm\node_modules\typescript\bin\tsc
