@@ -1,26 +1,12 @@
-/// <reference path="../node_modules/angular2/ts/typings/node/node.d.ts"/>
-/// <reference path="../node_modules/angular2/typings/browser.d.ts"/>
+import { bootstrap }    from '@angular/platform-browser-dynamic';
+import { HTTP_PROVIDERS, XHRBackend } from '@angular/http';
+import { InMemoryBackendService, SEED_DATA } from 'angular2-in-memory-web-api';
+import { TodoSeedData } from './shared/todo.data';
 
-import {Component} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
+import { AppComponent } from './app.component';
 
-@Component({
-    selector: 'todo-app',
-    template:
-        `<h1>{{ title }}</h1>
-        <ul>
-            <li *ngFor="#task of taskList">{{ task }}</li>
-        </ul>`
-})
-
-class AppComponent {
-    title: string;
-    taskList: string[];
-
-    constructor() {
-        this.title = 'Todo App';
-        this.taskList = ['Learn Angular 2', 'Learn TypeScript'];
-    }
-}
-
-bootstrap(AppComponent);
+bootstrap(AppComponent, [
+    HTTP_PROVIDERS,
+    { provide: XHRBackend, useClass: InMemoryBackendService },
+    { provide: SEED_DATA, useClass: TodoSeedData },
+]);
