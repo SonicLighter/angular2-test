@@ -1,0 +1,17 @@
+.ui.segment.form {
+    margin-top: 3rem;
+}
+
+#taskLists .item {
+    display: flex;
+    align-items: center;
+}
+
+#taskLists .completed {
+    text-decoration: line-through;
+}
+
+#taskLists .button {
+    margin-left: auto;
+}
+
