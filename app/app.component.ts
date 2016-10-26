@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { TasksListComponent } from './tasks/tasks-list.component';
 
 @Component({
     /*
@@ -9,6 +10,7 @@ import {Component} from '@angular/core';
     selector: 'todo-app',
     templateUrl: './app/app.component.html',
     styleUrls: ['./app/app.component.css'],
+    directives: [TasksListComponent],
 })
 export class AppComponent {
     title: string;
@@ -19,7 +21,17 @@ export class AppComponent {
         this.taskList = [/*'Learn JavaScript', 'Learn ES6', 'Learn Angular2', 'Learn something'*/];
     }
 
-    addTask() {
-        
+    addTask(title: string/*event: anytitleInput: HTMLInputElement*/) {
+        //console.log(titleInput.value);
+        /*
+        let title = titleInput.value;
+        titleInput.value = '';
+        this.taskList.push(title);
+        */
+        /*if(event.type === 'keyup' && event.which === 13){
+            this.taskList.push(event.target.value);
+        }*/
+        //console.log(event);
+        this.taskList.push(title);
     }
 }
